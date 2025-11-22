@@ -1,0 +1,24 @@
+// p8_ode.sce
+// 1) Одно уравнение dx/dt = -k x
+function dx = fdecay(t, x)
+k = 0.5;
+dx = -k*x;
+endfunction
+t = 0:0.1:10;
+x0 = 10;
+x = ode(x0, 0, t, fdecay);
+clf(); plot(t, x);
+xtitle("Затухающая экспонента","t","x(t)"); xgrid();
+// 2) Система Лотки–Вольтерры
+function dx = fLV(t, X)
+a = 1.0; b = 0.1; c = 1.5; d = 0.075;
+prey = X(1); pred = X(2);
+dx = [a*prey - b*prey*pred; -c*pred + d*prey*pred];
+endfunction
+t2 = 0:0.05:50;
+x0 = [10; 5];
+X = ode(x0, 0, t2, fLV);
+figure();
+plot(t2, X(1,:)); plot(t2, X(2,:));
+legend("Жертвы","Хищники"); xgrid();
+xtitle("Модель Лотки–Вольтерры","t","популяции");
