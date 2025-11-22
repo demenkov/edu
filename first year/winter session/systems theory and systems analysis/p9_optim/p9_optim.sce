@@ -1,9 +1,10 @@
 // p9_optim.sce
-// Функция Розенброка
-function y = rosenbrock(x)
+// Функция Розенброка уже включена в scilab
+/*
+function y = rosen(x)
     y = (1 - x(1))^2 + 100 * (x(2) - x(1)^2)^2;
 endfunction
-
+*/
 x0 = [-1.2; 1];
 
 // Так как сигнатура вызова optim изменилась
