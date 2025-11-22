@@ -6,7 +6,7 @@ endfunction
 
 x0 = [-1.2; 1];
 
-// Используем fminsearch вместо устаревшего optim
+// Используем fminsearch вместо optim
 [xopt, fopt] = fminsearch(rosen, x0);
 
 disp("Минимум: fopt = " + string(fopt));
